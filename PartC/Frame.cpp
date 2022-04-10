@@ -81,6 +81,6 @@ Author: Sarfraj Singh, Daniel Samociuk, Belent Patrus, Haroun Benmeddour
 **********************************************************************/
 std::ostream& operator<<(std::ostream& output, Frame& frame)
 {
-	output << "frameName = " << frame.frameName << "; duration = " << frame.duration;
+	output << "frame name = " << frame.frameName << "; duration = " << frame.duration;
 	return output;
 }

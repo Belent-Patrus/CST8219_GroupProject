@@ -26,13 +26,14 @@ Author: Sarfraj Singh, Daniel Samociuk, Belent Patrus, Haroun Benmeddour
 **********************************************************************/
 void AnimationManager::EditAnimation()
 {
+	if (animations.empty()) {
+		std::cout << "no animations to edit" << std::endl;
+		return;
+	}
 	int counter = 0;
 	int choice = -1;
 	int menuInput = -1;
 
-	if (animations.empty()) {
-		std::cout << "no animations to edit" << std::endl;
-	}
 	for (auto i = animations.begin(); i != animations.end(); i++) {
 		counter++;
 	}
@@ -90,17 +91,16 @@ Author: Sarfraj Singh, Daniel Samociuk, Belent Patrus, Haroun Benmeddour
 **********************************************************************/
 void AnimationManager::DeleteAnimation()
 {
-
-	std::cout << "Delete an Animation from the Animation manager" << std::endl;
 	int counter = 0;
 	int choice;
 
-	
+	std::cout << "Delete an Animation from the Animation manager" << std::endl;
+
 	if (animations.empty()) {
 		std::cout << "There is no Animation to delete!" << std::endl;
 		return;
 	}
-
+	
 	
 	for (auto i = animations.begin(); i != animations.end(); i++) {
 		counter++;
@@ -110,8 +110,7 @@ void AnimationManager::DeleteAnimation()
 	std::cin >> choice;
 
 
-
-	//Delete the Animation inside the vector
+	counter = 0;
 	for (auto i = animations.begin(); i != animations.end(); i++) {
 		if (counter == choice) {
 			animations.erase(i);
@@ -133,8 +132,6 @@ Author: Sarfraj Singh, Daniel Samociuk, Belent Patrus, Haroun Benmeddour
 std::istream& operator>>(std::istream& input, AnimationManager& manager)
 {
 	std::string name;
-
-	
 	std::cout << "Add an Animation to the Animation Manager " << std::endl;
 	std::cout << "Please enter the Animation Name: ";
 	input >> name;
@@ -142,7 +139,6 @@ std::istream& operator>>(std::istream& input, AnimationManager& manager)
 	Animation* tmp = new Animation(name);
 	manager.animations.push_back(*tmp);
 	std::cout << "Animation entitles " << name << " added to the back of the animations" << std::endl;
-
 	return input;
 }
 
@@ -163,7 +159,6 @@ std::ostream& operator<<(std::ostream& output, AnimationManager& manager)
 		output << "Animation: " << counter++ << std::endl;
 		output << *i;
 	}
-
 	return output;
 
 	

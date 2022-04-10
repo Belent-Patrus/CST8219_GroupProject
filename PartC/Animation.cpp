@@ -26,7 +26,6 @@ void Animation::EditFrame()
 
 
 	char name[100];
-	name[0] = '\0';
 	double duration;
 	int counter = 0;
 	int counter2 = 0;
@@ -47,12 +46,12 @@ void Animation::EditFrame()
 	
 	for (auto i = frames.begin(); i != frames.end(); i++) {
 		if (counter2 == choice) {
-			std::cout << "The name and duration of this Frame are " << *i << ". What do you wish to replace it with? \n";
+			std::cout << "The name and duration of this Frame are " << *i << ". \nWhat do you wish to replace it with? \n";
 			std::cin >> name;
 			std::cin >> duration;
 			Frame* newFrame = new Frame(name, duration);
 			*i = *newFrame;
-			std::cout << "Frame " << counter << " edit completed\n";
+			std::cout << "Frame " << choice << " edit completed\n";
 			break;
 		}
 		counter2++;
@@ -92,7 +91,6 @@ std::istream& operator>>(std::istream& input, Animation& animation)
 {
 
 	char name[100];
-	name[0] = '\0';
 	double duration;
 
 	std::cout << "Insert a Frame in the Animation\n";
