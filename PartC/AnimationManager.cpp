@@ -29,6 +29,10 @@ void AnimationManager::EditAnimation()
 	int counter = 0;
 	int choice = -1;
 	int menuInput = -1;
+
+	if (animations.empty()) {
+		std::cout << "no animations to edit" << std::endl;
+	}
 	for (auto i = animations.begin(); i != animations.end(); i++) {
 		counter++;
 	}
@@ -93,7 +97,7 @@ void AnimationManager::DeleteAnimation()
 
 	
 	if (animations.empty()) {
-		std::cout << "There is no Animation. Please add an Animation first!\n";
+		std::cout << "There is no Animation to delete!" << std::endl;
 		return;
 	}
 
