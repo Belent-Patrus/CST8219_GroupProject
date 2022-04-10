@@ -100,13 +100,6 @@ std::istream& operator>>(std::istream& input, Animation& animation)
 	std::cout << "Please enter the Frame duration: ";
 	input >> duration;
 
-	if (input.fail()) {
-		std::cout << "Please enter a valid decimal\n";
-		input.clear();
-		input.ignore(500, '\n');
-		return input;
-	}
-
 	Frame* tmp = new Frame(name, duration);
 
 	animation.frames.push_front(*tmp);
@@ -134,7 +127,7 @@ std::ostream& operator<<(std::ostream& output, Animation& animation)
 	}
 	else{
 
-		//Else return all frames value
+		
 		for (auto i = animation.frames.begin(); i != animation.frames.end(); i++) {
 			output << "\tFrame " << counter++ << ": " << *i << std::endl;
 		}
