@@ -91,13 +91,13 @@ void AnimationManager::DeleteAnimation()
 	int counter = 0;
 	int choice;
 
-	/*If the linked list is empty*/
+	
 	if (animations.empty()) {
 		std::cout << "There is no Animation. Please add an Animation first!\n";
 		return;
 	}
 
-	/*Count the number of nodes inside the vectors*/
+	
 	for (auto i = animations.begin(); i != animations.end(); i++) {
 		counter++;
 	}
@@ -130,7 +130,7 @@ std::istream& operator>>(std::istream& input, AnimationManager& manager)
 {
 	std::string name;
 
-	//Ask for the Animation Name
+	
 	std::cout << "Add an Animation to the Animation Manager " << std::endl;
 	std::cout << "Please enter the Animation Name: ";
 	input >> name;
@@ -162,5 +162,5 @@ std::ostream& operator<<(std::ostream& output, AnimationManager& manager)
 
 	return output;
 
-	// TODO: insert return statement here
+	
 }
