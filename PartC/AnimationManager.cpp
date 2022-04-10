@@ -15,7 +15,6 @@ Purpose: Initialize variables and define the functions related to Animation obje
 #include "Frame.h"
 #include "Animation.h"
 #include "AnimationManager.h"
-#include <iostream>
 
 /********************************************************************
 Function name: EditAnimation
